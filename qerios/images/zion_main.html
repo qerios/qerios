@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<!-- saved from url=(0391)file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>zion_main</title>
+<link rel="stylesheet" href="./zion_main_files/swiper.min.css">
+<style>
+/* reset */
+html,body{margin:0;padding:0;width:100%;height:100%;}
+body,button,dd,dl,dt,fieldset,form,nav,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,select,table,td,textarea,th,ul{margin:0;padding:0}
+button,input{border-radius:0}
+fieldset,img{border:0}
+ol,ul{list-style:none}
+clearfix{content:"";display:block;clear:both;}
+
+/* common */
+body,button,input,select,table,textarea{font-size:12px;font-family:'Malgun Gothic','맑은 고딕',Helvetica,"Apple SD Gothic Neo",sans-serif}
+address,em{font-style:normal}
+a{text-decoration:none;color:#ffffff;}a:hover{text-decoration:underline}a:link{text-decoration:none;}
+nav{color:#ffffff;}
+
+/* layout */
+.box{width:100%;height:100%;position:relative;}
+.box:last-child{width:100%;height:510px;position:relative;}
+.wrap{position:relative;top:-16px;left:0;margin:0;padding:0;width:100%;height:100%;}
+.header{position:fixed;width:100%;height:80px;top:0;left:0;z-index:15;}
+.main_contents1{position:relative;top:0;left:0;width:100%;height:100%;}
+.main_contents2{position:relative;top:80px;left:0;width:100%;height:340px;background:#f7f7f7;}
+.main_contents3{position:relative;top:80px;left:0;width:100%;height:670px;}
+.footer_sub{position:relative;top:125px;left:0;width:100%;height:185px;background:#000;}
+.footer{position:relative;top:125px;left:0;width:100%;height:185px;background:#dbdbdb;}
+
+/* contents */
+.logo{display:block;float:left;margin:18px 0 0 30px;}
+.header_background{position:absolute;width:100%;height:80px;top:0;left:0;background:#000;z-index:-1;opacity:0;transition:1.0s;}
+
+/* main_holder */
+.main_contents1 .txt_holder{position:absolute;top:70%;left:0;width:100%;height:20%;color:#ffffff;}
+/* main_btn */
+.btns{position:absolute;top:50%;width:100%;height:50px;text-align:center;vertical-align:middle;}
+.btns a{position:relative;display:inline-block;width:200px;height:50px;padding:0 5%;margin:0 5px;border:2px solid #a36b4f}
+.btns a:hover{background:rgba(0,0,0,0.7);}
+.btn_contents{display:inline-block;font-size:16px;height:50px;line-height:50px;}
+
+/* car_box */
+.main_contents2 .car_box{position:absolute;margin:0;padding:0;left:0;top:0;width:100%;height:100%;}
+.car_list{display:inline-block;width:25%;height:100%;margin:0 -2px;padding:0;border:none;}
+.car_list a{position:relative;display:block;height:300px;overflow:hidden;padding:20px 0;background:#f7f7f7;}
+.car_list a:hover{background:#eee;}
+.car_list a::after{content:"";position:absolute;top:20px;left:0;width:1px;height:300px;background:#eee;}
+.car_list a:hover img, .car_list a:hover span{opacity:1.0;transition:all 0.3s;}
+.car_list a:hover img:first-child{opacity:0;transition:all 0.3s;}
+.car_list img:first-child{position:absolute;width:350px;right:50%;bottom:80px;margin-right:-175px;opacity:1;}
+.car_list img{position:absolute;width:184px;right:15%;bottom:65px;opacity:0;}
+.car_caption{padding:5% 10%;}
+.car_caption strong{display:block;color:#000;font-size:20px;font-weight:normal;text-transform:uppercase;}
+.car_caption span{opacity:0;position:relative;display:inline-block;color:#a36b4f;font-size:16px;padding: 0 0 5px 0;border-bottom:1px solid #a36b4f;margin-top:25px;}
+
+/* border */
+.wrap::before{content:"";position:absolute;left:30px;top:110px;display:block;width:2px;height:100%;background: #a36b4f;box-sizing: border-box;z-index: 11;}
+.wrap::after{content:"";position:absolute;right:32px;top:110px;display:block;width:2px;height:100%;background: #a36b4f;box-sizing:border-box;z-index:10;}
+.main_contents1::before{content:"";position:absolute;left:30px;top:92px;display:block;width:calc(100% - 62px);height:2px;background: #a36b4f;z-index: 10;}
+
+/* menubar */
+.menubar_back{display:none;position:absolute;top:80px;left:0;width:100%;height:230px;background-color:#0c0c0c;opacity:0.8;}
+.menubar{display:flex;justify-content:flex-start;align-items:center;border:0px;font-size:15px;font-weight:bold;height:80px;padding-left:50px;} 
+.menubar ul{height:80px;}
+.menubar li{float:left;}
+.menubar li a{display:block;font-weight:normal;height:80px;line-height:80px;margin:0px;padding:0px 25px;text-align:center;}
+.menubar li a:hover, .menubar ul li:hover a{background:none;color:#a36b4f;transition:0.3s;}
+.menubar li ul{background-color:rgba(0,0,0,0.5);display:none;/* 평상시에는 드랍메뉴가 안보이게 하기 */height:auto;border:0px;position:absolute;width:200px;z-index:100;/*top:1em;/*left:0;*/}
+.menubar li:hover ul{display:block;} /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+.menubar li li {display:block;float:none;margin:0px;padding:0px;width:200px;}
+.menubar li:hover li a{background:none;color:#ffffff;}
+.menubar li ul a{display:block;height:50px;font-size:14px;line-height:50px;font-style:normal;margin:0px;padding:0px 10px 0px 15px;text-align:left;}
+.menubar li ul a:hover, .menubar li ul li:hover a{background:#a36b4f;border:0px;color:#ffffff;text-decoration:none;;transition:none;}
+.menubar li::after{content:"";display:block;clear:both;}
+/* menubar right_menu */
+.menubar .right_menu{position:absolute;right:50px;}
+.menubar .right_menu ul li:first-child{position:relative;width:180px;font-size:0;line-height:1;vertical-align:top;margin-top:31px;margin-right:10px;}
+.menubar .right_menu ul li:first-child label{font-size:0;overflow:hidden;}
+.menubar .right_menu ul li:first-child input{width:100%;height:22px;background:transparent;color:#fff;font-size:15px;line-height:1;padding:0 40px 5px 25px;border:none;border-bottom:1px solid rgba(255,255,255,0.25);box-sizing:border-box;}
+.menubar .right_menu ul li:first-child img{position:absolute;left:0;top:0;}
+.menubar .right_menu ul li:first-child a.btn_search{display:block;position:absolute;right:0;top:3px;font-size:10px;color:#aaa;line-height:15px;padding:0;visibility:hidden;height:15px;}
+.menubar .right_menu ul li:first-child a.btn_search:hover{color:#fff;}
+.menubar .right_menu ul li:first-child a.btn_search span{display:block;}
+
+/* slide */
+.swiper-whitespace{position:relative;height:570px;padding:50px;text-align:center;}
+.swiper-inner-whitespace{position:relative;margin:0 auto;max-width:1920px;overflow:hidden;}
+.swiper-container{width:100%;height:540px;}
+.swiper-slide{text-align: center;font-size:18px;background:#fff;/* Center slide text vertically */display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.slide-tit a{display:inline-block;font-size:18px;text-transform:uppercase;margin-bottom:50px;padding-bottom:10px;color:#a36b4f;border-bottom:1px solid #a36b4f;}
+.swiper-button-prev{display:block;position:absolute;top:50%;left:1px;padding:30px 15px 30px 11px;width:23px;height:45px;z-index:3;background:rgba(0,0,0,0.7);margin-top:-52.5px;}
+.swiper-button-prev span{position:relative;display:block;width:23px;height:45px;overflow:hidden;}
+.swiper-button-next{display:block;position:absolute;top:50%;right:1px;;padding:30px 15px 30px 11px;width:23px;height:45px;z-index:3;background:rgba(0,0,0,0.7);margin-top:-52.5px;}
+.swiper-button-next span{position:relative;display:block;width:23px;height:45px;overflow:hidden;}
+.swiper-button-next:hover img, .swiper-button-prev:hover img{margin-top:-45px;transform:inherit;opacity:1;}
+.notice_caption{color:#000;font-size:18px;text-align:left;}
+.swiper-button-wrap{position:absolute;top:0;width:100%;}
+.swiper-pagination-bullet-active{background:#000;}
+.main_contents3 .swiper-slide a{position:absolute;top:0;left:0;}
+.main_contents3 .notice_caption strong{display:block;color:#000;font-weight:normal;text-transform:uppercase;margin-top:30px;}
+.main_contents3 .notice_caption span{display:block;color:#000f;margin-top:5px;}
+.main_contents3 .notice_caption p{color:#000;font-size:15px;letter-spacing:-0.2px;margin-top:15px;}
+
+/* footer */
+.footer_holder{box-sizing:border-box;height:100%;padding:50px 0 50px 0;text-align:center;vertical-align:middle;}
+.footer_holder p{height:16px;font-size:16px;color:#fff;}
+.footer_holder .sns{margin-top:34px;}
+.footer_holder .sns a{display:inline-block;width:36px;height:36px;margin:0 36px;}
+.footer_holder .sns a span{display:block;width:36px;height:36px;}
+.footer ul{margin:0 auto;padding:30px 0 27px;max-width:1920px;font-size:0;box-sizing:border-box;text-align:center;}
+.footer ul li{display:inline-block;padding:0 5%;text-align:center;font-size:12px;line-height:1;}
+.footer ul li a{display:inline-block;color:#666;}
+.footer_bot{background:#e6e6e6;height:116px;}
+.bot_contents{margin:0 auto;padding:30px 0 30px;width:100%;}
+.bot_contents .bot_contents_btn{float:left;width:50%;padding-left:30px;font-size:16px;}
+.bot_contents .bot_contents_btn a{display:inline-block;padding:20px 0 0;margin-right:20px;color:#000;}
+.bot_contents .bot_contents_btn a:hover{text-decoration:underline;}
+.bot_contents p.copy{float:right;margin-right:50px;font-size:10px;line-height:50px;color:#666;}
+
+/* btn-top */
+.hide{display:none;transition:all 0.3s;}
+.btn_top{position:fixed;bottom:30px;right:30px;font-size:0;z-index:15;opacity:0;transition:all 0.3s;}
+.btn_top a{display:inline-block;color:#a36b4f;text-align:center;}
+.btn_top a span.btn_txt{display:block;font-size:10px;line-height:1;}
+.btn_top a span.vert_line_mask{display:inline-block;margin-top:5px;width:1px;overflow:hidden;height:33px;}
+.btn_top a span.vert_line{display:inline-block;position:relative;width:1px;height:53px;background:#a36b4f;}
+
+</style>
+</head>
+
+<body>
+	<div class="wrap">
+    &nbsp;&nbsp;&nbsp;&nbsp;<div class="box">
+            <div class="header">
+            	<div class="header_background"></div>
+                <h1 class="logo">
+                	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" style="display:block;height:43px;">
+                 	   <img src="./zion_main_files/logo_header.jpg" alt="genesis_logo">
+                    </a>
+                </h1>
+                <nav class="menubar clearfix">
+                	<span class="menubar_back" style="display: none;"></span>
+                	<ul class="clearfix">
+                	  <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">THE BRAND</a>
+                      	<ul>
+                        	<li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">브랜드 소개</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">뉴스 및 이벤트</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">CONCEPT CAR</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">제네시스 스튜디오</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">G90 SPECIAL EDITION</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">2018 부산 모터쇼</a></li>
+                         </ul>   
+                      </li> 
+                      <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">MODELS</a>
+                         <ul>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">G70</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">G80</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">G80 SPORT</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">G90</a></li>
+                         </ul>   
+                      </li>
+                      <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">SHOPPING</a>
+                         <ul>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">제네시스 구매 프로그램</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">견적 내기</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">구매 상담 신청</a></li>
+                        	<li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">시승 신청</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">전시장 / 센터 찾기</a></li>
+                      	 </ul>   
+                      </li>
+                      <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">OWNERS</a>
+                      	 <ul>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">제네시스 멤버십</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">제네시스 커넥티드 서비스</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">제네시스 오너스 몰</a></li>
+                            <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">오너스 매뉴얼 다운로드</a></li>
+                         </ul>
+                      </li>
+                	</ul>
+                    <div class="right_menu">
+                    	<ul>
+                        	<li>
+                            	<form>
+                                    <label>검색창</label>
+                                    <input type="text" name="quick" id="sch-input" placeholder="SEARCH" maxlength="16" value="">
+                                    <img src="./zion_main_files/ico_search_w.png" alt="검색아이콘">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" class="btn_search" onclick="#">
+                                        <span>SEARCH</span>
+                                    </a>
+                                </form>
+                            </li>
+                    		<li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">QUICK LINK</a>
+                            	<ul>
+                                	<li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">FAQ</a></li>
+                                    <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">고객센터</a></li>
+                                    <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">다운로드 센터</a></li>
+                                    <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">로그인</a></li>
+                                    <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">회원가입</a></li>
+                                </ul>
+                            </li> 
+                        	<li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">한국어</a>
+                            	<ul>
+                                	<li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">한국어</a></li>
+                                    <li><a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">ENGLISH</a></li>
+                                </ul>
+                            </li>
+                    	</ul>
+                    </div>
+                </nav>
+                
+            </div>
+            <div class="main_contents1">
+                <video width="1902" style="z-index:-5;">
+                	<source src="Genesis_G90_30s.mp4" type="video/mp4">
+                </video>
+                <div class="txt_holder">
+                	<div class="btns">
+                		<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#"><span class="btn_contents">G90 출고 고객 대상 이벤트</span></a>
+                  	    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#"><span class="btn_contents">G90 상세보기</span></a>
+                  	    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#"><span class="btn_contents">G90 전시장 찾기</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    &nbsp;&nbsp;&nbsp;&nbsp;<div class="box">
+    		<div class="main_contents2">
+            	<div class="car_box">
+                	<div class="car_list">
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                        	<img src="./zion_main_files/genesis-g70-main.jpg" alt="g70">
+                          	<img src="./zion_main_files/genesis-g70-main-min.jpg" alt="g70_min">
+                            <div class="car_caption">
+                            	<strong>GENESIS G70</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="car_list">
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                        	<img src="./zion_main_files/genesis-g80-main.jpg" alt="g80">
+                            <img src="./zion_main_files/genesis-g80-main-min.jpg" alt="g80_min">
+                            <div class="car_caption">
+                            	<strong>GENESIS G80</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="car_list">
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                        	<img src="./zion_main_files/genesis-g80sport-main.jpg" alt="g80sport">
+                            <img src="./zion_main_files/genesis-g80sport-main-min.jpg" alt="g80_min">
+                            <div class="car_caption">
+                            	<strong>GENESIS G80 SPORT</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="car_list">
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                        	<img src="./zion_main_files/genesis-g90-main.jpg" alt="g90">
+                            <img src="./zion_main_files/genesis-g90-main-min.jpg" alt="g90_min">
+                            <div class="car_caption">
+                            	<strong>GENESIS G90</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    		</div>
+            
+            <div class="main_contents3">
+            	<div class="swiper-whitespace">
+                	<div class="swiper-inner-whitespace">
+                    	<div class="slide-tit"><a href="javascript:void(0);">뉴스 및 이벤트</a></div>
+                        <div class="swiper-container swiper-container-horizontal">
+                            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1833px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="6" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/michelin-damage-free-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>미쉐린 타이어 1년 데미지 프리 헤택</strong>
+                                            <span></span>
+                                            <p>오직 제네시스 멤버십만을 위한 미쉐린 타이어 1년 데미지 프리 헤택(1 Year Damage Free) !</p>
+                                        </div>
+                                    </a>
+                                </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="7" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G90-launching-event-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>G90 출시 기념 이벤트</strong>
+                                            <span></span>
+                                            <p>G90와 함께 하면 언제 어디서나 특별한 경험을 하실 수 있습니다.</p>
+                                        </div>
+                                    </a>
+                                </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="8" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G90-launching-news-v02-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G90 전시 매장 안내</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드의 플래그십 모델 G90의 출시에 맞춰, 전국 73개 전시장에서 G90가 전시됩니다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/g70-nactoy-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G70, '북미 올해의 차' 선정</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드는 G70가 승용 부문 '2019 북미 올해의 차(NACTOY, The North American Car and Truck of the Yeay)'에 최종 선정됐다고 밝혔다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/Genesis_Spectrum-v02_580x340.jpg" alt="g70-spectrum">
+                                    	<div class="notice_caption">
+                                        	<strong>제네시스 스펙트럼 신규 런칭</strong>
+                                            <span></span>
+                                            <p>월 구독으로 새롭게 경험하는 제네시스 스펙트럼 프로그램 신규 런칭</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="2" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G70-SAFEST-CAR-580x340.jpg" alt="g70-safest">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G70, '신차안전도평가' 최우수 수상</strong>
+                                            <span></span>
+                                            <p>국토교통부 주관 신차안전도평가서 G70 중형 세단부문 최우수 수상</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="3" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/earn-2019-iihs-580x340.jpg" alt="g70-earn">
+                                        <div class="notice_caption">
+                                        	<strong>미 충돌 테스트 최고 안전한 차로 G70, G80, G90(국내명EQ900) 전 차종 선정</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드의 G70, G80, G90(국내명 EQ900) 등 브랜드 라인업 전 차종이 모두 톱 세이프티 픽 플러스를 얻어냈다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="4" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G70-2019-car-580x340.jpg" alt="g70-2019">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G70, 모터트렌드 [올해의 차] 선정</strong>
+                                            <span></span>
+                                            <p>G70 세계 최고 자동차 전문지로 꼽히는 미국 모터트렌드의 '2019 올해의 차'로 선정</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="5" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G90-launching-news-v02-580x340.jpg" alt="g70-launching">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G90 출시</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드를 대표하는 글로벌 럭셔리 플래그십 세단 G90(지 나인티) 공식 출시</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="6" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/michelin-damage-free-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>미쉐린 타이어 1년 데미지 프리 헤택</strong>
+                                            <span></span>
+                                            <p>오직 제네시스 멤버십만을 위한 미쉐린 타이어 1년 데미지 프리 헤택(1 Year Damage Free) !</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="7" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G90-launching-event-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>G90 출시 기념 이벤트</strong>
+                                            <span></span>
+                                            <p>G90와 함께 하면 언제 어디서나 특별한 경험을 하실 수 있습니다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="8" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G90-launching-news-v02-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G90 전시 매장 안내</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드의 플래그십 모델 G90의 출시에 맞춰, 전국 73개 전시장에서 G90가 전시됩니다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/g70-nactoy-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G70, '북미 올해의 차' 선정</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드는 G70가 승용 부문 '2019 북미 올해의 차(NACTOY, The North American Car and Truck of the Yeay)'에 최종 선정됐다고 밝혔다.</p>
+                                        </div>
+                                    </a>
+                                </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/Genesis_Spectrum-v02_580x340.jpg" alt="g70-spectrum">
+                                    	<div class="notice_caption">
+                                        	<strong>제네시스 스펙트럼 신규 런칭</strong>
+                                            <span></span>
+                                            <p>월 구독으로 새롭게 경험하는 제네시스 스펙트럼 프로그램 신규 런칭</p>
+                                        </div>
+                                    </a>
+                                </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 581px; margin-right: 30px;">
+                                    <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+                                        <img src="./zion_main_files/G70-SAFEST-CAR-580x340.jpg" alt="g70-safest">
+                                        <div class="notice_caption">
+                                        	<strong>제네시스 G70, '신차안전도평가' 최우수 수상</strong>
+                                            <span></span>
+                                            <p>국토교통부 주관 신차안전도평가서 G70 중형 세단부문 최우수 수상</p>
+                                        </div>
+                                    </a>
+                                </div></div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
+                            <div class="swiper-button-wrap" style="height:340px;">
+                                	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+                                    <span>
+                                    	<img src="./zion_main_files/btn_prev.png" alt="왼쪽 화살표">
+                                    </span>
+                                    </a>
+                                	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
+                                    <span>
+                                		<img src="./zion_main_files/btn_next.png" alt="오른쪽 화살표">
+                                    </span>
+                                    </a>
+                            </div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div> <!-- swiper-wrapper End -->
+                    	</div> <!-- swiper-container End -->
+                    </div> <!-- swiper-inner-whitespace End -->
+                </div> <!-- swiper-whitespace End -->
+        	</div> <!-- main_cotents3 End -->
+        
+        
+        <div class="box">
+    &nbsp;		<div class="footer_sub">
+    			<div class="footer_holder">
+                	<p>DISCOVER GENESIS.</p>
+                    <div class="sns">
+                    	<a href="https://www.facebook.com/GenesisWorldwide" target="_blank">
+                        	<span>
+                        		<img src="./zion_main_files/sns_icon_fb.png" alt="페이스북">
+                      		</span>
+                        </a>
+                        <a href="https://www.instagram.com/genesisworldwide" target="_blank">
+                        	<span>
+                            	<img src="./zion_main_files/sns_icon_inst.png" alt="인스타그램">
+                            </span>
+                        </a>
+                        <a href="https://www.youtube.com/genesisworldwide" target="_blank">
+                        	<span>
+                            	<img src="./zion_main_files/sns_icon_ytb.png" alt="유튜브">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+    		</div>
+    		<div class="footer">
+            	<ul>
+                	<li>
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_self">사이트맵</a>
+                    </li>
+                    <li>
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_self">보증안내</a>
+                    </li>
+                    <li>
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_self">이용약관</a>
+                    </li>
+                    <li>
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_self">개인정보 처리방침</a>
+                    </li>
+                    <li>
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_self">저작권안내</a>
+                    </li>
+                    <li>
+                    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_self">자주묻는질문</a>
+                    </li>
+                </ul>
+                <div class="footer_bot">
+                	<div class="bot_contents clearfix">
+                    	<div class="bot_contents_btn">
+                        	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_blank">제네시스 월드와이드</a>
+                            <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_blank">미디어 센터</a>
+                            <a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#" target="_blank">제네시스 챔피언십</a>
+                        </div>
+                        <p class="copy">@ Copyright 2018 Hyundai Motor Company. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+    
+	<div class="btn_top hide">
+    	<a href="file:///C:/Users/Administrator/Documents/%EC%84%9C%EC%8B%9C%EC%98%A8_%EC%88%98%EC%97%85_%EB%B0%B1%EC%97%85%ED%8C%8C%EC%9D%BC/%23%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EC%84%9C%EC%8B%9C%EC%98%A8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%84%A4%EA%B3%84_HTML_%ED%8C%8C%EC%9D%BC/text_2.html?quick=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94#">
+        	<span class="btn_txt">TOP</span>
+            <span class="vert_line_mask">
+            	<span class="vert_line"></span>
+            </span>
+        </a>
+    </div>
+    
+<script src="./zion_main_files/jquery.min.js.다운로드"></script>
+<script src="./zion_main_files/jquery-1.12.4.min.js.다운로드"></script>  
+<script src="./zion_main_files/swiper.min.js.다운로드"></script>     
+<script>
+	window.onload = function () {
+		$(".box").each(function () {
+			// 개별적으로 Wheel 이벤트 적용
+			$(this).on("mousewheel DOMMouseScroll", function (e) {
+				e.preventDefault();
+				var delta = 0;
+				if (!event) event = window.event;
+				console.log(event);
+				if (event.wheelDelta) {
+					delta = event.wheelDelta / 120;
+					if (window.opera) delta = -delta;
+				} else if (event.detail) delta = -event.detail / 3;
+				var moveTop = null;
+				// 마우스휠을 위에서 아래로
+				if (delta < 0) {
+					console.log("delta" + delta);
+					if ($(this).next() != undefined) {
+						console.log("undefined"+undefined);
+						moveTop = $(this).next().offset().top;
+						console.log("moveTop" + moveTop);
+					}
+				// 마우스휠을 아래에서 위로
+				} else {
+					if ($(this).prev() != undefined) {
+						moveTop = $(this).prev().offset().top;
+						console.log(moveTop);
+					}
+				}
+				// 화면 이동 0.8초(800)
+				$("html,body").stop().animate({
+					scrollTop: moveTop + 'px'
+				}, {
+					duration: 800, complete: function () {
+					}
+				});
+			});
+		});
+	}
+	
+	// Hide Header on on scroll down 
+	var didScroll; 
+	var lastScrollTop = 0; 
+	var delta = 500; 
+	var navbarHeight = $('.header').outerHeight(); 
+	$(window).scroll(function(event){ 
+		didScroll = true; 
+	});
+	
+	setInterval(function() {
+		if (didScroll) { 
+			hasScrolled(); 
+			didScroll = false;
+		} 
+	}, 250); 
+	
+	function hasScrolled() { 
+		var st = $(this).scrollTop(); 
+		
+		// Make sure they scroll more than delta 
+		if(Math.abs(lastScrollTop - st) <= delta) 
+			return; 
+			
+		// If they scrolled down and are past the navbar, add class .nav-up. 
+		// This is necessary so you never see what is "behind" the navbar. 
+		if (st > lastScrollTop && st > navbarHeight){
+			 // Scroll Down 
+			    $('.header_background').css("opacity",'1');
+				$('.btn_top').css("opacity",'1');
+				$('.btn_top').removeClass('hide');
+		} else {
+			 // Scroll Up 
+			 if(st + $(window).height() < $(document).height()) { 
+				  $('.header_background').css("opacity",'0');
+				  $('.btn_top').css("opacity",'0');
+				  $('.btn_top').addClass('hide');
+			} 
+		}
+		
+		 lastScrollTop = st;
+}
+
+  var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+	
+
+	$("input").focus(function(){
+		$('.btn_search').css("visibility","visible");
+	});
+	$("input").blur(function(){
+		$('.btn_search').css("visibility","hidden");
+	});
+
+	/* 헤더 슬라이드 */
+	$(".menubar li").hover(function(){
+		$(".menubar_back").slideDown("slow");
+	});
+	
+	$(".menubar_back").hover(function(){
+		$(this).css("display","block");
+	}, function(){
+		$(this).slideUp("slow");
+	});
+	
+/*
+  $(function(){
+	  $(".socialIco a").css({'opacity':0, 'filter':'alpha(opacity=0)'});
+	  $(".socialIco a").on("mouseover",function(){
+		  $(this).stop().animate({opacity:'1'},500);
+	  });
+	  $(".socialIco a").on("mouseout",function(){
+		  $(this).stop().animate({opacity:'0'},500);
+	  });
+  });
+*/
+</script>
+
+
+
+</body></html>

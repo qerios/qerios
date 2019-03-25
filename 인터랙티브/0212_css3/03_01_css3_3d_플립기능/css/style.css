@@ -1,0 +1,32 @@
+* { margin:0; padding:0; }
+li { list-style: none; }
+img { vertical-align: top; }
+
+.phone { width:175px; margin:50px auto; }
+.phone li { width:175px; height:352px; position:relative; }
+
+.front, .back { position:absolute; top:0; left:0; }
+
+/* 플립기능 구현 */
+
+.phone li { perspective: 700px; }
+
+.flip { transform-style: preserve-3d; transform:rotateY(0deg); 
+	transition:all .4s ease; 
+}
+.back { transform : rotateY(180deg); backface-visibility:hidden; }
+.front { backface-visibility:hidden; }
+
+.phone li:hover .flip { transform: rotateY(180deg); }
+
+
+
+
+
+
+
+
+
+
+
+

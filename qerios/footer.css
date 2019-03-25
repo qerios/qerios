@@ -1,0 +1,24 @@
+/* footer */
+.footer_holder{box-sizing:border-box;height:100%;padding:50px 0 50px 0;text-align:center;vertical-align:middle;}
+.footer_holder p{height:16px;font-size:16px;color:#fff;}
+.footer_holder .sns{margin-top:34px;}
+.footer_holder .sns a{display:inline-block;width:36px;height:36px;margin:0 36px;}
+.footer_holder .sns a span{display:block;width:36px;height:36px;}
+.footer ul{margin:0 auto;padding:30px 0 27px;max-width:1920px;font-size:0;box-sizing:border-box;text-align:center;}
+.footer ul li{display:inline-block;padding:0 5%;text-align:center;font-size:12px;line-height:1;}
+.footer ul li a{display:inline-block;color:#666;}
+.footer_bot{background:#e6e6e6;height:116px;}
+.bot_contents{margin:0 auto;padding:30px 0 30px;width:100%;}
+.bot_contents .bot_contents_btn{float:left;width:50%;padding-left:30px;font-size:16px;}
+.bot_contents .bot_contents_btn a{display:inline-block;padding:20px 0 0;margin-right:20px;color:#000;}
+.bot_contents .bot_contents_btn a:hover{text-decoration:underline;}
+.bot_contents p.copy{float:right;margin-right:50px;font-size:10px;line-height:50px;color:#666;}
+
+/* btn-top */
+.hide{visibility:hidden;}
+.btn_top{position:fixed;bottom:30px;right:30px;font-size:0;z-index:15;opacity:0;transition:all 0.3s;}
+.btn_top a{display:inline-block;color:#a36b4f;text-align:center;}
+.btn_top a span.btn_txt{display:block;font-size:10px;line-height:1;}
+.btn_top a span.vert_line_mask{display:inline-block;margin-top:5px;width:1px;overflow:hidden;height:33px;transition:all 0.3s;}
+.btn_top a span.vert_line{display:inline-block;position:relative;width:1px;height:53px;background:#a36b4f;}
+.btn_top a:hover span.vert_line_mask{height:53px;}

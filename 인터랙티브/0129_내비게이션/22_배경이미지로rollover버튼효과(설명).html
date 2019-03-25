@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Simple List</title>
+<style type="text/css">
+<!--
+
+body {
+  font-family: "Myriad Pro", Frutiger, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.4em;
+}
+
+a {
+  display: block; /* 1. 인라인요소인 a태그를 블록속성으로 변경하여서 width, height값을 줄 수 있다.  */
+  width: 200px; /* 2. width, height값 지정 */
+  height: 39px;
+  line-height: 39px; /* 3. height의 세로중심에 텍스트 위치 - 공식처럼 사용 */
+  color: #000; /* 4. 텍스트 색상  */
+  text-decoration: none; /* 5. 링크 적용시 밑줄 없앰 */
+  background: #94B8E9 url(images/button.gif) no-repeat left bottom;
+  /* 6. 속기형 배경 : 배경색상 배경이미지url  반복없앰 위치 */
+  text-indent: 50px; 
+  /* 7. 텍스트의 가로위치 조절 + -값을 줄 수 있다.
+      텍스트를 브라우저에서 안 보이게 처리할 때 주로 -9999px 와
+	 같은 큰 수치의 -값을 주고 있다.  */
+  text-transform: uppercase;   /* 8. 텍스트 대문자화 */
+}
+
+
+a:hover, .selected{
+  background-color: #369;
+   background: #94B8E9 url(images/button-over.gif);
+  color: #fff;
+  /* background-color와 background: #94B8E9는 이미지가 로딩되기 전에 
+  배경 색상값이 먼저 적용되어서 비어 보이지 않도록 하는 용도*/
+}
+
+.first {
+  height: 40px; /* 9. 텍스트의 세로중앙에 배치 */
+  line-height: 40px;
+}
+
+
+-->
+</style>
+</head>
+
+<body>
+
+<a href="home.htm" class="first selected"><span>홈</span></a>
+<a href="about.htm">회사소개</a>
+
+
+</body>
+</html>

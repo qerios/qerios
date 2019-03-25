@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+a{color:pink;}
+.test2{color: lime;} /* a태그에 적용하는 class */
+.test1{color: red;} /* a태그에 재정의 class */
+
+
+/*  css 우선순위 
+- a태그와 .test1와 .test2 class에서는 class값이 우선한다.
+
+- 두개 이상의 class값이 태그에 적용되는 경우는 어떤 class 값이 적용되는가?
+-- 태그에 class값을 적어주는 순서 class="test2 test1" 나 class=" test1 test2"로 
+    적어주는 순서는 상관없다
+-- 영향을 주는 것은 <style></style>에서 작성된 css 순서가 중요하다.
+    뒤에 작성된 class 값이 적용된다.    
+
+*/
+
+</style>
+</head>
+
+<body>
+<a href="#" class="test2 test1">HOME</a>
+</body>
+</html>

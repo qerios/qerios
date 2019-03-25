@@ -1,0 +1,155 @@
+.box { width:200px; height:200px; background-color:yellowgreen; 
+
+	/* css3 transform 변형 
+	-webkit-transform
+	-moz-transform
+	-o-transform
+	-ms-transform
+	transform*/
+	
+	transform : translate(100px,50px); /*이동*/
+	transform : translateX(100px);
+	transform : translateY(100px);
+	transform : translate(100%,100%);
+	transform : rotate(360deg);
+	transform : scale(1);
+	transform : skew(30deg); /* MDN 참고 해보세요 */
+	
+	transform : rotate(45deg) translateX(100px);
+	/*
+		transform의 속성은 항상 기준이 자기 자신이다. 회전을 할경우 x,y축도 같이 회전을 한다.
+	*/
+	transform : none;
+}
+
+/* transition */
+.box {
+	
+	transition-property: border-radius, background-color;
+	transition-duration: 2s,5s;
+	transition-timing-function:ease,linear;
+	transition-delay: 0s,2s;
+	
+	transition:border-radius 2s ease, background-color 5s linear 2s;
+}
+
+.box:hover { background-color:cornflowerblue; border-radius:50%; }
+/*
+	마우스인: 3초에 걸쳐 동그라미가 되고 동그라미가 끝나기 1초전에 2초에 걸쳐 색상이 바뀐다.
+	마우스아웃: 4초에 걸쳐 색상이 원래색으로 돌아오고 그 행동이 끝나기 2초전에 원래 형태로 3초에 걸쳐 돌아 온다.
+*/
+
+.nemo { width:200px; height:200px; background-color:orange; 
+	
+/*	transition: all 2000ms linear;*/
+	transition: background-color 4s ease, border-radius 3s ease 2s;
+}
+
+.nemo:hover { border-radius:50%; background-color:red;
+
+/*	transition: all 10000ms linear;*/
+	transition:border-radius 3s ease,background-color 2s ease 2s;
+}
+
+/* 예제 */
+
+* { margin:0; padding:0; }
+img { vertical-align:top; }
+
+.container { width:1170px; margin:10px auto; }
+
+.show { width:380px; margin:5px; float:left; }
+.item { margin-bottom:10px; }
+
+/* 2번아이템 */
+.item2 { position:relative; overflow:hidden; }
+
+.item2 .info { background-color:yellowgreen; position:absolute;
+	bottom:0; left:0; width:100%; height:100%; text-align:center;
+	color:#fff; 
+	
+	transform: translateY(100%);
+	transition: transform .5s ease;
+}
+
+.item2:hover .info { transform: translateY(0); }
+
+/* 1번째 */
+
+.item1 { position:relative; overflow:hidden; }
+
+.item1 .cover { position:absolute; top:0; left:0; 
+	width:100%; height:100%; background-color:rgba(0,0,0,0.4);
+	
+	transform:scale(0.2) rotate(720deg);
+	opacity:0;
+	transition:all .4s ease;
+}
+
+.item1:hover .cover { transform: scale(1) rotate(0deg); opacity:1; }
+
+.item1 .cover p { color:#fff; font-size:30px;
+	
+	text-align:center; width:100%; 
+	position:absolute; top:50%;
+	transform:translateY(-50%);
+}
+
+/* 3예제 */
+.item5 { position:relative; }
+
+.item5 .shadow { width:100%; height:100%; 
+	position:absolute; top:0; left:0;
+	
+	box-shadow:inset 0px 0px 0px 0px rgba(0,0,0,0.4);
+	transition:all 400ms ease; 
+}
+
+.item5:hover .shadow { 
+	box-shadow:inset 0px 0px 0px 190px rgba(0,0,0,0.4);
+}
+
+/* 4예제 */
+
+.item6 { overflow:hidden; }
+
+.item6 img { transition:all .4s ease; }
+
+.item6:hover img { transform: scale(1.2); }
+
+/* 5예제 */
+.item4 { position:relative; }
+.item4 .line { background-color:red; position:absolute; 
+/*	transition:all .4s ease;*/
+}
+.item4 .line1 { height:5px; left:0; width:0%; 
+	transition:all .4s linear 1.2s; }
+.item4 .line2 { height:0%; top:0; right:0; width:5px; 
+	transition:all .4s linear .8s;}
+.item4 .line3 { height:5px; right:0; bottom:0; width:0%; 
+	transition:all .4s linear .4s; }
+.item4 .line4 { height:0%; left:0; bottom:0; width:5px; 
+	transition:all .4s linear; }
+
+.item4:hover .line1 { width:100%; transition:all .4s linear; }
+.item4:hover .line2 { height:100%; transition:all .4s linear .4s; }
+.item4:hover .line3 { width:100%; transition:all .4s linear .8s; }
+.item4:hover .line4 { height:100%; transition:all .4s linear 1.2s; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

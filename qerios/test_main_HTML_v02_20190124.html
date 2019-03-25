@@ -1,0 +1,552 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>zion_main</title>
+<link rel="stylesheet" href="reset&common.css">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="reset&common.css">
+<link rel="stylesheet" href="swiper/dist/css/swiper.min.css">
+<style>
+/* layout */
+.box{position:relative;width:100%;height:100%;}
+.box:last-child{position:relative;width:100%;height:510px;}
+.wrap{position:relative;top:0;left:0;margin:0;padding:0;width:100%;height:100%;}
+.header{position:fixed;width:100%;height:80px;top:0;left:0;z-index:15;transition:all 0.5s;}
+.main_contents1{position:relative;top:0;left:0;width:100%;height:100%;}
+.main_contents2{position:relative;top:80px;left:0;width:100%;height:340px;background:#f7f7f7;}
+.main_contents3{position:relative;top:80px;left:0;width:100%;height:670px;}
+.footer_sub{position:relative;top:125px;left:0;width:100%;height:185px;background:#000;}
+.footer{position:relative;top:125px;left:0;width:100%;height:185px;background:#dbdbdb;}
+
+/* main_holder */
+.main_contents1 .txt_holder{position:absolute;top:70%;left:0;width:100%;height:20%;color:#ffffff;}
+/* main_btn */
+.btns{position:absolute;top:50%;width:100%;height:50px;text-align:center;vertical-align:middle;}
+.btns a{position:relative;display:inline-block;width:200px;height:50px;padding:0 5%;margin:0 5px;border:2px solid #a36b4f}
+.btns a:hover{background:rgba(0,0,0,0.7);}
+.btn_contents{display:inline-block;font-size:16px;height:50px;line-height:50px;}
+
+/* car_box */
+.main_contents2 .car_box{position:absolute;margin:0;padding:0;left:0;top:0;width:100%;height:100%;}
+.car_list{display:inline-block;width:25%;height:100%;margin:0 -2px;padding:0;border:none;}
+.car_list a{position:relative;display:block;height:300px;overflow:hidden;padding:20px 0;background:#f7f7f7;}
+.car_list a:hover{background:#eee;}
+.car_list a::after{content:"";position:absolute;top:20px;left:0;width:1px;height:300px;background:#eee;}/*float구분선*/
+.car_list a:hover img, .car_list a:hover span{opacity:1.0;}
+.car_list a:hover img:first-child{opacity:0;}
+.car_list img:first-child{position:absolute;width:350px;right:50%;bottom:80px;margin-right:-175px;opacity:1;transition:all 0.3s;}
+.car_list img{position:absolute;width:184px;right:15%;bottom:65px;opacity:0;transition:all 0.3s;}
+.car_caption{padding:5% 10%;}
+.car_caption strong{display:block;color:#000;font-size:20px;font-weight:normal;text-transform:uppercase;}
+.car_caption span{opacity:0;position:relative;display:inline-block;color:#a36b4f;font-size:16px;padding: 0 0 5px 0;border-bottom:1px solid #a36b4f;margin-top:25px;}
+
+/* main_border */
+.wrap::before{content:"";position:absolute;left:30px;top:110px;display:block;width:2px;height:98.5%;background: #a36b4f;box-sizing: border-box;z-index: 11;}
+.wrap::after{content:"";position:absolute;right:32px;top:110px;display:block;width:2px;height:98.5%;background: #a36b4f;box-sizing:border-box;z-index:10;}
+.main_contents1::before{content:"";position:absolute;left:30px;top:110px;display:block;width:calc(100% - 62px);height:2px;background: #a36b4f;z-index: 10;}
+
+/* slide */
+.swiper-whitespace{position:relative;height:570px;padding:50px;text-align:center;}
+.swiper-inner-whitespace{position:relative;margin:0 auto;max-width:1920px;overflow:hidden;}
+.swiper-container{width:100%;height:540px;}
+.swiper-slide{text-align: center;font-size:18px;background:#fff;/* Center slide text vertically */display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.slide-tit a{display:inline-block;font-size:18px;text-transform:uppercase;margin-bottom:50px;padding-bottom:10px;color:#a36b4f;border-bottom:1px solid #a36b4f;}
+.swiper-button-prev{display:block;position:absolute;top:50%;left:1px;padding:30px 15px 30px 11px;width:23px;height:45px;z-index:3;background:rgba(0,0,0,0.7);margin-top:-52.5px;}
+.swiper-button-prev span{position:relative;display:block;width:23px;height:45px;overflow:hidden;}
+.swiper-button-next{display:block;position:absolute;top:50%;right:1px;;padding:30px 15px 30px 11px;width:23px;height:45px;z-index:3;background:rgba(0,0,0,0.7);margin-top:-52.5px;}
+.swiper-button-next span{position:relative;display:block;width:23px;height:45px;overflow:hidden;}
+.swiper-button-next:hover img, .swiper-button-prev:hover img{margin-top:-45px;transform:inherit;opacity:1;}
+.notice_caption{color:#000;font-size:18px;text-align:left;}
+.swiper-button-wrap{position:absolute;top:0;width:100%;}
+.swiper-pagination-bullet-active{background:#000;}
+.main_contents3 .swiper-slide a{position:absolute;top:0;left:0;}
+.main_contents3 .notice_caption strong{display:block;color:#000;font-weight:normal;text-transform:uppercase;margin-top:30px;}
+.main_contents3 .notice_caption span{display:block;color:#000f;margin-top:5px;}
+.main_contents3 .notice_caption p{color:#000;font-size:15px;letter-spacing:-0.2px;margin-top:15px;}
+</style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="header">
+                <div class="header_background"></div>
+                <h1 class="logo">
+                    <a href="#" style="display:block;height:43px;">
+                        <img src="images/logo_header.jpg" alt="genesis_logo" />
+                    </a>
+                </h1>
+                <nav class="menubar">
+                    <span class="menubar_back"></span>
+                    <ul class>
+                        <li><a href="#">THE BRAND</a>
+                            <ul>
+                                <li><a href="#">브랜드 소개</a></li>
+                                <li><a href="#">뉴스 및 이벤트</a></li>
+                                <li><a href="#">CONCEPT CAR</a></li>
+                                <li><a href="#">제네시스 스튜디오</a></li>
+                                <li><a href="#">G90 SPECIAL EDITION</a></li>
+                                <li><a href="#">2018 부산 모터쇼</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">MODELS</a>
+                            <ul class="car_menu">
+                                <li>
+                                    <a href="#">
+                                        <span>G70<span>
+                                                <img src="images/car_menu/gnb_g70_side.jpg" alt="G70_tab">
+                                                <img src="images/car_menu/gnb_g70_front.jpg" alt="G70_tab_min">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>G80<span>
+                                                <img src="images/car_menu/gnb_g80_side.jpg" alt="G80_tab">
+                                                <img src="images/car_menu/gnb_g80_front.jpg" alt="G80_tab_min">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>G80 SPORT<span>
+                                                <img src="images/car_menu/gnb_g80sport_side.jpg" alt="G80_tab">
+                                                <img src="images/car_menu/gnb_g80sport_front.jpg" alt="G80sport_tab_min">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>G90<span>
+                                                <img src="images/car_menu/gnb_g90_side.jpg" alt="G90_tab">
+                                                <img src="images/car_menu/gnb_g90_front.jpg" alt="G90_tab_min">
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">SHOPPING</a>
+                            <ul>
+                                <li><a href="#">제네시스 구매 프로그램</a></li>
+                                <li><a href="#">견적 내기</a></li>
+                                <li><a href="#">구매 상담 신청</a></li>
+                                <li><a href="#">시승 신청</a></li>
+                                <li><a href="#">전시장 / 센터 찾기</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">OWNERS</a>
+                            <ul>
+                                <li><a href="#">제네시스 멤버십</a></li>
+                                <li><a href="#">제네시스 커넥티드 서비스</a></li>
+                                <li><a href="#">제네시스 오너스 몰</a></li>
+                                <li><a href="#">오너스 매뉴얼 다운로드</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="right_menu">
+                        <ul>
+                            <div class="sch">
+                                <form>
+                                    <label>검색창</label>
+                                    <input type="text" name="quick" id="sch-input" placeholder="SEARCH" maxlength="16" value>
+                                    <img src="images/ico_search_w.png" alt="검색아이콘">
+                                    <a href="#" class="btn_search" onclick="#">
+                                        <span>SEARCH</span>
+                                    </a>
+                                </form>
+                                </div>
+                            <li><a href="#">QUICK LINK</a>
+                                <ul>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">고객센터</a></li>
+                                    <li><a href="#">다운로드 센터</a></li>
+                                    <li><a href="#">로그인</a></li>
+                                    <li><a href="#">회원가입</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">한국어</a>
+                                <ul>
+                                    <li><a href="#">한국어</a></li>
+                                    <li><a href="#">ENGLISH</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div><!-- 헤더끝 -->
+
+            <div class="main_contents1">
+                <video autoplay width="1903" style="z-index:-5;">
+                    <source src="Genesis_G90_30s.mp4" type="video/mp4"/>
+                </video>
+                <div class="txt_holder">
+                    <div class="btns">
+                        <a href="#"><span class="btn_contents">G90 출고 고객 대상 이벤트</span></a>
+                        <a href="#"><span class="btn_contents">G90 상세보기</span></a>
+                        <a href="#"><span class="btn_contents">G90 전시장 찾기</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="box">
+            <div class="main_contents2">
+                <div class="car_box">
+                    <div class="car_list">
+                        <a href="#">
+                            <img src="images/genesis-g70-main.jpg" alt="g70">
+                            <img src="images/genesis-g70-main-min.jpg" alt="g70_min">
+                            <div class="car_caption">
+                                <strong>GENESIS G70</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="car_list">
+                        <a href="#">
+                            <img src="images/genesis-g80-main.jpg" alt="g80">
+                            <img src="images/genesis-g80-main-min.jpg" alt="g80_min">
+                            <div class="car_caption">
+                                <strong>GENESIS G80</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="car_list">
+                        <a href="#">
+                            <img src="images/genesis-g80sport-main.jpg" alt="g80sport">
+                            <img src="images/genesis-g80sport-main-min.jpg" alt="g80_min">
+                            <div class="car_caption">
+                                <strong>GENESIS G80 SPORT</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="car_list">
+                        <a href="#">
+                            <img src="images/genesis-g90-main.jpg" alt="g90">
+                            <img src="images/genesis-g90-main-min.jpg" alt="g90_min">
+                            <div class="car_caption">
+                                <strong>GENESIS G90</strong>
+                                <span>더 알아보기</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main_contents3">
+                <div class="swiper-whitespace">
+                    <div class="swiper-inner-whitespace">
+                        <div class="slide-tit"><a href="javascript:void(0);">뉴스 및 이벤트</a></div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/g70-nactoy-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                            <strong>제네시스 G70, '북미 올해의 차' 선정</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드는 G70가 승용 부문 '2019 북미 올해의 차(NACTOY, The North American Car and Truck of the Yeay)'에 최종 선정됐다고 밝혔다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/Genesis_Spectrum-v02_580x340.jpg" alt="g70-spectrum">
+                                        <div class="notice_caption">
+                                            <strong>제네시스 스펙트럼 신규 런칭</strong>
+                                            <span></span>
+                                            <p>월 구독으로 새롭게 경험하는 제네시스 스펙트럼 프로그램 신규 런칭</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/G70-SAFEST-CAR-580x340.jpg" alt="g70-safest">
+                                        <div class="notice_caption">
+                                            <strong>제네시스 G70, '신차안전도평가' 최우수 수상</strong>
+                                            <span></span>
+                                            <p>국토교통부 주관 신차안전도평가서 G70 중형 세단부문 최우수 수상</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/earn-2019-iihs-580x340.jpg" alt="g70-earn">
+                                        <div class="notice_caption">
+                                            <strong>미 충돌 테스트 최고 안전한 차로 G70, G80, G90(국내명EQ900) 전 차종 선정</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드의 G70, G80, G90(국내명 EQ900) 등 브랜드 라인업 전 차종이 모두 톱 세이프티 픽 플러스를 얻어냈다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/G70-2019-car-580x340.jpg" alt="g70-2019">
+                                        <div class="notice_caption">
+                                            <strong>제네시스 G70, 모터트렌드 [올해의 차] 선정</strong>
+                                            <span></span>
+                                            <p>G70 세계 최고 자동차 전문지로 꼽히는 미국 모터트렌드의 '2019 올해의 차'로 선정</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/G90-launching-news-v02-580x340.jpg" alt="g70-launching">
+                                        <div class="notice_caption">
+                                            <strong>제네시스 G90 출시</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드를 대표하는 글로벌 럭셔리 플래그십 세단 G90(지 나인티) 공식 출시</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/michelin-damage-free-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                            <strong>미쉐린 타이어 1년 데미지 프리 헤택</strong>
+                                            <span></span>
+                                            <p>오직 제네시스 멤버십만을 위한 미쉐린 타이어 1년 데미지 프리 헤택(1 Year Damage Free) !</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/G90-launching-event-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                            <strong>G90 출시 기념 이벤트</strong>
+                                            <span></span>
+                                            <p>G90와 함께 하면 언제 어디서나 특별한 경험을 하실 수 있습니다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="images/G90-launching-news-v02-580x340.jpg" alt="g70-nactory">
+                                        <div class="notice_caption">
+                                            <strong>제네시스 G90 전시 매장 안내</strong>
+                                            <span></span>
+                                            <p>제네시스 브랜드의 플래그십 모델 G90의 출시에 맞춰, 전국 73개 전시장에서 G90가 전시됩니다.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-wrap" style="height:340px;">
+                                <a href="#" class="swiper-button-prev">
+                                    <span>
+                                        <img src="images/btn_prev.png" alt="왼쪽 화살표">
+                                    </span>
+                                </a>
+                                <a href="#" class="swiper-button-next">
+                                    <span>
+                                        <img src="images/btn_next.png" alt="오른쪽 화살표">
+                                    </span>
+                                </a>
+                            </div>
+                        </div> <!-- swiper-wrapper End -->
+                    </div> <!-- swiper-container End -->
+                </div> <!-- swiper-inner-whitespace End -->
+            </div> <!-- swiper-whitespace End -->
+        </div> <!-- main_cotents3 End -->
+
+
+        <div class="box">
+              <div class="footer_sub">
+                <div class="footer_holder">
+                    <p>DISCOVER GENESIS.</p>
+                    <div class="sns">
+                        <a href="https://www.facebook.com/GenesisWorldwide" target="_blank">
+                            <span>
+                                <img src="images/sns_icon_fb.png" alt="페이스북">
+                            </span>
+                        </a>
+                        <a href="https://www.instagram.com/genesisworldwide" target="_blank">
+                            <span>
+                                <img src="images/sns_icon_inst.png" alt="인스타그램">
+                            </span>
+                        </a>
+                        <a href="https://www.youtube.com/genesisworldwide" target="_blank">
+                            <span>
+                                <img src="images/sns_icon_ytb.png" alt="유튜브">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <ul>
+                    <li>
+                        <a href="#" target="_self">사이트맵</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">보증안내</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">개인정보 처리방침</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">저작권안내</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">자주묻는질문</a>
+                    </li>
+                </ul>
+                <div class="footer_bot">
+                    <div class="bot_contents">
+                        <div class="bot_contents_btn">
+                            <a href="#" target="_blank">제네시스 월드와이드</a>
+                            <a href="#" target="_blank">미디어 센터</a>
+                            <a href="#" target="_blank">제네시스 챔피언십</a>
+                        </div>
+                        <p class="copy">@ Copyright 2018 Hyundai Motor Company. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn_top hide">
+        <a href="#">
+            <span class="btn_txt">TOP</span>
+            <span class="vert_line_mask">
+                <span class="vert_line"></span>
+            </span>
+        </a>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="swiper/dist/js/swiper.min.js"></script>
+<script>
+    window.onload = function() {
+        $(".box").each(function() {
+            // 개별적으로 Wheel 이벤트 적용
+            $(this).on("mousewheel DOMMouseScroll", function(e) {
+                e.preventDefault();
+                var delta = 0;
+                if (!event) event = window.event;
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
+                } else if (event.detail) delta = -event.detail / 3;
+                var moveTop = null;
+                // 마우스휠을 위에서 아래로
+                if (delta < 0) {
+                    if ($(this).next() != undefined) {
+                        moveTop = $(this).next().offset().top;
+                    }
+                    // 마우스휠을 아래에서 위로
+                } else {
+                    if ($(this).prev() != undefined) {
+                        moveTop = $(this).prev().offset().top;
+                    }
+                }
+                // 화면 이동 0.8초(800)
+                $("html,body").stop().animate({
+                    scrollTop: moveTop + 'px'
+                }, {
+                    duration: 800,
+                    complete: function() {}
+                });
+            });
+        });
+    }
+
+    // 아래로 스크롤할 때 헤더 숨기기
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 500;
+    var navbarHeight = $('.header').outerHeight();
+    $(window).scroll(function(event) {
+        didScroll = true;
+    });
+
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 250);
+
+    function hasScrolled() {
+        var st = $(this).scrollTop();
+
+        // 델타보다 많이 스크롤하는지 확인
+        if (Math.abs(lastScrollTop - st) <= delta)
+            return;
+
+        // 아래로 스크롤하여 탐색기를 통과한 경우 클래스 .nav-up을 추가
+        // This is necessary so you never see what is "behind" the navbar.
+        if (st > lastScrollTop && st > navbarHeight) {
+            // 스크롤 Down
+            $('.header_background').css("opacity", '1');
+            $('.btn_top').css("opacity", '1');
+            $('.btn_top').removeClass('hide');
+        } else {
+            // 스크롤 Up
+            if (st + $(window).height() < $(document).height()) {
+                $('.header_background').css("opacity", '0');
+                $('.btn_top').css("opacity", '0');
+                $('.btn_top').addClass('hide');
+            }
+        }
+        lastScrollTop = st;
+    }
+
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    // 메뉴바 검색창 SEARCH 활성화
+    $("input").focus(function() {
+        $('.btn_search').css("visibility", "visible");
+    });
+    $("input").blur(function() {
+        $('.btn_search').css("visibility", "hidden");
+    });
+
+    /* 헤더 슬라이드 */
+    $(".menubar li").hover(function() {
+        $(".menubar_back").stop(true, true).slideDown("fast");
+        $(".header").css("background", "#000");
+    });
+
+    $(".menubar").hover(function() {
+    }, function() {
+        $(".menubar_back").slideUp("fast");
+        $(".header").css("background", "transparent");
+    });
+
+
+    /*
+      $(function(){
+          $(".socialIco a").css({'opacity':0, 'filter':'alpha(opacity=0)'});
+          $(".socialIco a").on("mouseover",function(){
+          $(this).stop().animate({opacity:'1'},500);
+          });
+          $(".socialIco a").on("mouseout",function(){
+          $(this).stop().animate({opacity:'0'},500);
+          });
+      });
+    */
+</script>
+
+</body>
+
+</html>
